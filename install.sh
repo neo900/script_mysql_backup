@@ -5,6 +5,8 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
+way=$(`pwd`);
+
 useradd -m -s /bin/bash dump
 cd /home/dump
 mkdir mysql_backup
@@ -14,6 +16,10 @@ touch backup.log
 touch db_name
 mkdir db_backup
 
-#git clone https://github.com/neo900/script_mysql_backup.git
+cp $way/backup.sh .
+cp $way/tar_backup.sh .
+
+echo Complite!
+echo Configure the username and password in the file backup.sh
 
 
