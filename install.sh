@@ -5,7 +5,7 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-way=$(`pwd`);
+way=`pwd`
 
 useradd -m -s /bin/bash dump
 cd /home/dump
