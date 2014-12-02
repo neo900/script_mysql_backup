@@ -1,6 +1,9 @@
 #!/bin/bash
 
-sudo -i 
+if [[ $EUID -ne 0 ]]; then
+  echo 'Error!!! This script should be runed as root!' 1>&2
+  exit 1
+fi
 
 useradd -m -s /bin/bash dump
 cd /home/dump
@@ -11,6 +14,6 @@ touch backup.log
 touch db_name
 mkdir db_backup
 
-git clone https://github.com/neo900/script_mysql_backup.git
+#git clone https://github.com/neo900/script_mysql_backup.git
 
 
